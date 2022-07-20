@@ -14,7 +14,7 @@ const colecao_salario_ipca = [
 ];
 
 
-import entradaDados from "readline-sync";
+import entradaDados, { setDefaultOptions } from "readline-sync";
 
 console.log("1 - Listar o histórico do salário mínimo\n");
 console.log("2 - Listar o histórico da taxa IPCA (inflação)\n");
@@ -34,7 +34,7 @@ function FSalario () {
 function FIpca() {
   for(let dados of colecao_salario_ipca){
     let ano = dados.ano;
-    
+    let inflacao = dados.inflacao;
     console.log("Ano:".padEnd(25,".") + ano)
     console.log("Inflação IPCA".padEnd(25,".") + inflacao + "%\n\n") 
   }
@@ -47,16 +47,22 @@ if(opcao == 1){
   FIpca();
 
 } else if ( opcao == 3) {
-  for(let dados of colecao_salario_ipca){
-    let ano = dados.ano;
-    let inflacao = dados.inflacao.toFixed(2);
-    let crescimento_salarial_percentual = undefined;
-    let salario = dados.salario.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+  for(let i = 0; i <= colecao_salario_ipca.length-1 ; i++){
 
-    if(ano == 2010) {
-      crescimento_salarial_percentual = " -";
+    let ano = colecao_salario_ipca[i].ano;
+    let inflacao = colecao_salario_ipca[i].inflacao.toFixed(2);
+    let crescimento_salarial_percentual = undefined;
+    let salario = colecao_salario_ipca[i].salario;
+
+    if(i > 0) {
+
+      let salarioAnterior = colecao_salario_ipca[i-1].salario;
+      let diferenca = salario - salarioAnterior;
+      crescimento_salarial_percentual = (diferenca / salarioAnterior) * 100 ;
+      crescimento_salarial_percentual = crescimento_salarial_percentual.toFixed(2) + "%";
+
     } else {
-      console.log(dados.salario - dados.salario - 1)
+      crescimento_salarial_percentual = " -";
     }
     console.log("Ano:".padEnd(25,".") + ano);
     console.log("Salário mínimo".padEnd(25,".") + salario);

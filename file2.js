@@ -2,6 +2,7 @@ let expressao_proibida = "passaporte falso";
 
 let comentario = "   venda de PASSAPORTE FALSO   ";
 
+//formatando o comentário para que ele seja comparado
 comentario = comentario.trim();
 comentario = comentario.toLowerCase();
 

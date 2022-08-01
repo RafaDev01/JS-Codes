@@ -9,6 +9,8 @@ Verificando se o cometário é permitido
 # file3.js
 Exibindo chuva de meteoros com strings manipuladas
 
-# file 4.js
+# file4.js
 Retornando o tanto de dias que o usuário está ausente, e recebendo-o formalmente.
 
+# file5.js
+Percorrendo a coleção de obejtos e usando Math() para retornar valores

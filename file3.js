@@ -21,6 +21,7 @@ for ( const chuva of chuvas_meteoros ){
   let velocidade_chuva = chuva.velocidade;
 
   let pico_mes_dia = pico_chuva.split(" ");
+  console.log(pico_mes_dia)
 
   let pico_dia = pico_mes_dia[1];
   let pico_mes = pico_mes_dia[0];

@@ -46,7 +46,7 @@ const retorna_signo = (signos, data) => {
 
 }
 
-let data_app = new Date(“2020-12-30 00:00:00”);
+let data_app = new Date();
 
 const nome_signo = retorna_signo(colecao_signos, data_app);
 

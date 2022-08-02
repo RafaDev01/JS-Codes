@@ -14,3 +14,9 @@ Retornando o tanto de dias que o usuário está ausente, e recebendo-o formalmen
 
 # file5.js
 Percorrendo a coleção de obejtos e usando Math() para retornar valores
+
+# file6.js
+Retornando signos através da data atual
+
+# file7.js
+Retornando impar,par com arrow function

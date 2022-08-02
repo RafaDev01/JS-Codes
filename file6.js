@@ -13,8 +13,8 @@ let colecao_signos = [
   {"Nome": "Capricórnio", "DataInicio": "12-22","DataFim":"01-19"}
 ];
 
-const verifica_data_range =
-(data, data_inicio, data_fim, tipo_comparacao) => {
+//function que corrige o bug do signo de capricórnio
+const verifica_data_range = (data, data_inicio, data_fim, tipo_comparacao) => {
 
   if ( tipo_comparacao == "and" ){
       return (data >= data_inicio && data <= data_fim);
@@ -24,21 +24,25 @@ const verifica_data_range =
 
 }
 
+//function que vai retornar o signo
 const retorna_signo = (signos, data) => {
 
+  //passando o ano para a variavel para que seja usado com o date()
   let ano = data.getFullYear();
 
   for (const signo of signos ){
 
-      let data_inicio_signo =
-       new Date(ano + "-" + signo["DataInicio"] + " 00:00:00");
-      let data_fim_signo =
-       new Date(ano + "-" + signo["DataFim"] + " 23:59:59");
+      let data_inicio_signo = new Date(ano + "-" + signo["DataInicio"] + " 00:00:00");
+      //teste
+      console.log(data_inicio_signo + signo["Nome"])
+      let data_fim_signo = new Date(ano + "-" + signo["DataFim"] + " 23:59:59");
+      //teste
+      console.log(data_fim_signo + signo["Nome"])
 
+      //definindo qual sera o tipo de comparação usada
       let tipo_comparacao = signo["DataInicio"] == "12-22" ? "or" : "and";
 
-      if (verifica_data_range
-       (data, data_inicio_signo, data_fim_signo, tipo_comparacao)){
+      if (verifica_data_range(data, data_inicio_signo, data_fim_signo, tipo_comparacao)){
           return signo["Nome"];
       }
 
